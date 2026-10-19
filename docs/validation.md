@@ -195,35 +195,35 @@ The following screenshots provide evidence of the infrastructure configuration, 
 
 ### SSH Hardening
 
-![SSH Hardening](evidence/02-CTRL01-SSH-Hardening.png)
+![SSH Hardening](docs/evidence/02-CTRL01-SSH-Hardening.png.png)
 
 ### NTP Synchronization
 
-![Chrony NTP Synchronization](evidence/03-CTRL01-NTP-Synchronization.png)
+![NTP Synchronization](docs/evidence/03-CTRL01-NTP-Synchronization.png.png)
 
-### Ansible Remote Connectivity — APP01
+### Ansible Remote Connectivity
 
-![Ansible Remote Connectivity](evidence/04-Ansible-Remote-Connectivity.png)
+![Ansible Remote Connectivity](docs/evidence/04-Ansible-Remote-Connectivity.png.png)
 
 ### Automated Docker Deployment
 
-![Ansible Docker Deployment](evidence/05-Ansible-Docker-Deployment.png)
+![Docker Deployment](docs/evidence/05-Ansible-Docker-Deployment.png.png)
 
 ### Docker and Nginx Verification
 
-![Docker Nginx Verification](evidence/06-APP01-Docker-Nginx-Verification.png)
+![Docker Nginx Verification](docs/evidence/06-APP01-Docker-Nginx-Verification.png.png)
 
-### HTTP Connectivity — CTRL01 to APP01
+### HTTP Connectivity
 
-![HTTP Connectivity](evidence/07-CTRL01-to-APP01-Nginx-HTTP-Connectivity.png)
+![HTTP Connectivity](docs/evidence/07-CTRL01-to-APP01-Nginx-HTTP-Connectivity.png.png)
 
 ### Automated Nginx Deployment
 
-![Ansible Nginx Deployment](evidence/08-Ansible-Nginx-Deployment-Verification.png)
+![Nginx Deployment](docs/evidence/08-Ansible-Nginx-Deployment-Verification.png.png)
 
-### Ansible Idempotency Verification
+### Ansible Idempotency
 
-![Ansible Idempotency](evidence/09-Ansible-Nginx-Idempotency.png)
+![Ansible Idempotency](docs/evidence/09-Ansible-Nginx-Idempotency.png.png)
 
 ## 12. Conclusion
 

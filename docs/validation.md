@@ -36,7 +36,7 @@ curl -I http://192.168.60.20:8080
 - The `nexaops-nginx` container is running.
 - The web service responds over the private network.
 
-**Status:** Deployed; command output can be captured as additional evidence.
+**Status:** Deployed and verified.
 
 ## 4. PostgreSQL Service — DB01
 
@@ -45,11 +45,13 @@ curl -I http://192.168.60.20:8080
 ```bash
 sudo systemctl is-active postgresql
 sudo -u postgres psql -d helpdesk_db -c "SELECT current_database();"
+sudo ss -lntp | grep 5432
 ```
 
 **Checks:**
 - PostgreSQL service is active.
 - The `helpdesk_db` database is accessible locally.
+- PostgreSQL listens on TCP port 5432.
 
 **Status:** PostgreSQL installation and database configuration completed.
 
@@ -74,7 +76,7 @@ sudo pvs
 sudo vgs
 sudo lvs
 findmnt /var/lib/pgsql/data
-df -h /var/lib/pgsql/data
+sudo df -hT /var/lib/pgsql/data
 ```
 
 **Configured storage:**
@@ -87,8 +89,11 @@ df -h /var/lib/pgsql/data
 | LV Size | 12 GB |
 | Filesystem | XFS |
 | Mount Point | `/var/lib/pgsql/data` |
+| Available VG Space | Approximately 3 GB |
 
-**Status:** Storage configured; validation outputs can be attached.
+**Observed result:** The dedicated PostgreSQL logical volume is mounted successfully with the XFS filesystem.
+
+**Status:** PASS
 
 ## 7. SELinux & Firewalld
 
@@ -178,12 +183,14 @@ sudo -u postgres psql -d helpdesk_restore_test -c "SELECT COUNT(*) FROM support_
 | Component | Result |
 |---|---|
 | Ansible connectivity | PASS |
-| Docker / Nginx deployment | Completed |
+| Docker / Nginx deployment | Verified |
+| PostgreSQL service | Verified |
 | PostgreSQL remote authentication | PASS |
-| LVM storage provisioning | Completed |
+| LVM storage provisioning | PASS |
 | SELinux / Firewalld configuration | Completed |
 | Chrony / Cron configuration | Completed |
 | PostgreSQL backup and restore | PASS |
+| Docker private IP binding | PASS |
 
 ## 11. Evidence
 
@@ -225,19 +232,70 @@ The following screenshots provide evidence of the infrastructure configuration, 
 
 ![Ansible Idempotency](evidence/09-Ansible-Nginx-Idempotency.png)
 
-## 12. Conclusion
-
-The NexaOps lab demonstrates practical Linux infrastructure operations across three virtual servers.
-
-Successful Ansible connectivity, application-to-database authentication, and PostgreSQL backup restoration provide functional evidence of key infrastructure capabilities. Additional service and security validation outputs can strengthen the project's technical documentation.
-
-## 13. Database Server Evidence
+## 12. Database Server Evidence
 
 ### DB01 — LVM Storage
+
 ![DB01 LVM Storage](evidence/10-DB01-LVM-Storage.png)
 
 ### DB01 — PostgreSQL Service
+
 ![DB01 PostgreSQL Service](evidence/11-DB01-PostgreSQL-Service.png)
 
 ### DB01 — PostgreSQL Backup and Restore
+
 ![DB01 PostgreSQL Backup Restore](evidence/12-DB01-PostgreSQL-Backup-Restore.png)
+
+## 13. Docker Network Binding Verification — APP01
+
+The Nginx container is bound to the APP01 private IP address `192.168.60.20` on TCP port `8080`, rather than all host interfaces.
+
+**Docker Compose configuration:**
+
+```yaml
+services:
+  nginx:
+    image: "nginx:stable-alpine"
+    container_name: "nexaops-nginx"
+    restart: unless-stopped
+    ports:
+      - "192.168.60.20:8080:80"
+    volumes:
+      - ./html:/usr/share/nginx/html:ro,Z
+```
+
+**Validation command:**
+
+```bash
+sudo docker port nexaops-nginx
+```
+
+**Observed output:**
+
+```text
+80/tcp -> 192.168.60.20:8080
+```
+
+**Status:** PASS
+
+![Docker Network Binding](evidence/13-APP01-Docker-Network-Binding.png)
+
+## 14. Conclusion
+
+The NexaOps lab demonstrates practical Linux infrastructure operations across three virtual servers.
+
+The project includes:
+
+- Centralized Linux administration using Ansible.
+- SSH authentication and security hardening.
+- Automated Docker and Nginx deployment.
+- PostgreSQL database configuration and remote connectivity.
+- Dedicated PostgreSQL storage using LVM and XFS.
+- SELinux and Firewalld security controls.
+- Chrony time synchronization and scheduled health checks.
+- PostgreSQL backup and recovery validation.
+- Private network service binding verification.
+
+Successful Ansible connectivity, application-to-database authentication, dedicated storage validation, and PostgreSQL backup restoration provide functional evidence of key infrastructure capabilities.
+
+The NexaOps project serves as a practical portfolio demonstration for Linux System Administrator and junior infrastructure engineering positions.

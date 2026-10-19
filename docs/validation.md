@@ -187,18 +187,43 @@ sudo -u postgres psql -d helpdesk_restore_test -c "SELECT COUNT(*) FROM support_
 
 ## 11. Evidence
 
-Screenshots and terminal output may be added to the `docs/evidence/` directory.
+The following screenshots provide evidence of the infrastructure configuration, automation, and operational testing.
 
-Suggested evidence filenames:
+### SSH Key Authentication
 
-- `ansible-connectivity.png`
-- `docker-nginx-status.png`
-- `postgresql-connection.png`
-- `lvm-storage.png`
-- `security-controls.png`
-- `postgresql-backup-restore.png`
+![SSH Key Authentication](evidence/01-CTRL01-SSH-Key-Login.png)
 
-These filenames are placeholders for evidence to be collected; screenshots are not included in this document.
+### SSH Hardening
+
+![SSH Hardening](evidence/02-CTRL01-SSH-Hardening.png)
+
+### NTP Synchronization
+
+![Chrony NTP Synchronization](evidence/03-CTRL01-NTP-Synchronization.png)
+
+### Ansible Remote Connectivity — APP01
+
+![Ansible Remote Connectivity](evidence/04-Ansible-Remote-Connectivity.png)
+
+### Automated Docker Deployment
+
+![Ansible Docker Deployment](evidence/05-Ansible-Docker-Deployment.png)
+
+### Docker and Nginx Verification
+
+![Docker Nginx Verification](evidence/06-APP01-Docker-Nginx-Verification.png)
+
+### HTTP Connectivity — CTRL01 to APP01
+
+![HTTP Connectivity](evidence/07-CTRL01-to-APP01-Nginx-HTTP-Connectivity.png)
+
+### Automated Nginx Deployment
+
+![Ansible Nginx Deployment](evidence/08-Ansible-Nginx-Deployment-Verification.png)
+
+### Ansible Idempotency Verification
+
+![Ansible Idempotency](evidence/09-Ansible-Nginx-Idempotency.png)
 
 ## 12. Conclusion
 

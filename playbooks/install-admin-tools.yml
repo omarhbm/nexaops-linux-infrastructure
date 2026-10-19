@@ -1,0 +1,18 @@
+---
+- name: NexaOps - Install Administrator Tools
+  hosts: control 
+  become: true
+  gather_facts: false
+
+
+  tasks:
+    - name: Ensure administrator tools are installed
+      ansible.builtin.dnf:
+        name:
+          - vim-enhanced
+          - git
+          - curl
+          - wget
+          - tar
+          - rsync
+        state: present

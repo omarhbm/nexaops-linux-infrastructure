@@ -1,0 +1,8 @@
+---
+- name: NexaOps - Automated Nginx Deployment
+  hosts: app
+  become: true
+  gather_facts: true
+
+  roles:
+    - nginx

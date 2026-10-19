@@ -1,0 +1,8 @@
+---
+# tasks file for roles/common
+# ---
+- name: Ensure administration tools are installed
+  ansible.builtin.dnf:
+    name: "{{ common_packages }}"
+    state: present
+

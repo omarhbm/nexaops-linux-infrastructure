@@ -1,0 +1,8 @@
+---
+- name: NexaOps - Docker Engine Deployment
+  hosts: app
+  become: true
+  gather_facts: true
+
+  roles:
+    - docker

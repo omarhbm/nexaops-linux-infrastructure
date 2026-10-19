@@ -1,0 +1,35 @@
+---
+- name: Ensure Nginx application directories exist
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+  loop:
+    - "{{ nginx_app_dir }}"
+    - "{{ nginx_app_dir }}/html"
+
+- name: Deploy Nginx Docker Compose configuration
+  ansible.builtin.template:
+    src: compose.yml.j2
+    dest: "{{ nginx_app_dir }}/compose.yml"
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Deploy Nginx HTML page
+  ansible.builtin.template:
+    src: index.html.j2
+    dest: "{{ nginx_app_dir }}/html/index.html"
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Deploy and start Nginx container
+  community.docker.docker_compose_v2:
+    project_src: "{{ nginx_app_dir }}"
+    files:
+      - compose.yml
+    state: present
+    pull: missing

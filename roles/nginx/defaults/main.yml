@@ -1,0 +1,6 @@
+---
+nginx_container_name: nexaops-nginx
+nginx_image: nginx:stable-alpine
+nginx_host_port: 8080
+nginx_container_port: 80
+nginx_app_dir: /opt/nexaops/nginx

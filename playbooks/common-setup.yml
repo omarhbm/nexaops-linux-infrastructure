@@ -1,0 +1,9 @@
+---
+- name: Nexa - Common Server Configration
+  hosts: control:app
+  become: true
+  gather_facts: true
+
+  roles:
+    - common
+

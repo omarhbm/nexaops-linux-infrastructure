@@ -1,0 +1,7 @@
+---
+- name: Configure PostgreSQL on DB01
+  hosts: database
+  become: true
+
+  roles:
+    - postgresql

@@ -1,0 +1,7 @@
+---
+- name: Configure DB01 baseline
+  hosts: database
+  become: true
+
+  roles:
+    - common

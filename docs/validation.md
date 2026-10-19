@@ -191,7 +191,7 @@ The following screenshots provide evidence of the infrastructure configuration, 
 
 ### SSH Key Authentication
 
-![SSH Key Authentication](docs/docs/evidence/01-CTRL01-SSH-Key-Login.png.png)
+![SSH Key Authentication](docs/evidence/01-CTRL01-SSH-Key-Login.png.png)
 
 ### SSH Hardening
 

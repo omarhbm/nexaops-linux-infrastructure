@@ -222,8 +222,9 @@ Linux System Administration • RHEL • Rocky Linux • Ansible • Infrastruct
 
 ## Documentation
 
-For detailed infrastructure configuration, implementation, and validation:
+Detailed project documentation:
 
 - [Infrastructure Documentation](docs/infrastructure.md)
+- [Validation & Testing](docs/validation.md)
 
 The project demonstrates practical administration of a multi-server Linux environment, combining automation, container management, database administration, storage management, security, and disaster recovery testing.

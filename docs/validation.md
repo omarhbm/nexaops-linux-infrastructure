@@ -278,7 +278,7 @@ sudo docker port nexaops-nginx
 
 **Status:** PASS
 
-![Docker Network Binding](evidence/13-APP01-Docker-Network-Binding.png)
+![Docker Network Binding](docs/evidence/13-APP01-Docker-Network-Binding.png.png)
 
 ## 14. Conclusion
 

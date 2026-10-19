@@ -191,42 +191,53 @@ The following screenshots provide evidence of the infrastructure configuration, 
 
 ### SSH Key Authentication
 
-![SSH Key Authentication](docs/evidence/01-CTRL01-SSH-Key-Login.png.png)
+![SSH Key Authentication](evidence/01-CTRL01-SSH-Key-Login.png)
 
 ### SSH Hardening
 
-![SSH Hardening](docs/evidence/02-CTRL01-SSH-Hardening.png.png)
+![SSH Hardening](evidence/02-CTRL01-SSH-Hardening.png)
 
 ### NTP Synchronization
 
-![NTP Synchronization](docs/evidence/03-CTRL01-NTP-Synchronization.png.png)
+![NTP Synchronization](evidence/03-CTRL01-NTP-Synchronization.png)
 
 ### Ansible Remote Connectivity
 
-![Ansible Remote Connectivity](docs/evidence/04-Ansible-Remote-Connectivity.png.png)
+![Ansible Remote Connectivity](evidence/04-Ansible-Remote-Connectivity.png)
 
 ### Automated Docker Deployment
 
-![Docker Deployment](docs/evidence/05-Ansible-Docker-Deployment.png.png)
+![Docker Deployment](evidence/05-Ansible-Docker-Deployment.png)
 
 ### Docker and Nginx Verification
 
-![Docker Nginx Verification](docs/evidence/06-APP01-Docker-Nginx-Verification.png.png)
+![Docker Nginx Verification](evidence/06-APP01-Docker-Nginx-Verification.png)
 
 ### HTTP Connectivity
 
-![HTTP Connectivity](docs/evidence/07-CTRL01-to-APP01-Nginx-HTTP-Connectivity.png.png)
+![HTTP Connectivity](evidence/07-CTRL01-to-APP01-Nginx-HTTP-Connectivity.png)
 
 ### Automated Nginx Deployment
 
-![Nginx Deployment](docs/evidence/08-Ansible-Nginx-Deployment-Verification.png.png)
+![Nginx Deployment](evidence/08-Ansible-Nginx-Deployment-Verification.png)
 
 ### Ansible Idempotency
 
-![Ansible Idempotency](docs/evidence/09-Ansible-Nginx-Idempotency.png.png)
+![Ansible Idempotency](evidence/09-Ansible-Nginx-Idempotency.png)
 
 ## 12. Conclusion
 
 The NexaOps lab demonstrates practical Linux infrastructure operations across three virtual servers.
 
 Successful Ansible connectivity, application-to-database authentication, and PostgreSQL backup restoration provide functional evidence of key infrastructure capabilities. Additional service and security validation outputs can strengthen the project's technical documentation.
+
+## 13. Database Server Evidence
+
+### DB01 — LVM Storage
+![DB01 LVM Storage](evidence/10-DB01-LVM-Storage.png)
+
+### DB01 — PostgreSQL Service
+![DB01 PostgreSQL Service](evidence/11-DB01-PostgreSQL-Service.png)
+
+### DB01 — PostgreSQL Backup and Restore
+![DB01 PostgreSQL Backup Restore](evidence/12-DB01-PostgreSQL-Backup-Restore.png)
